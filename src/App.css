@@ -1,16 +1,18 @@
 h1,
 h2 {
   font-weight: normal;
+  
 }
 
 .calculator {
-  background-color: #dedede;
-  border: 1px solid #dedede;
+  background-color: #0A4D3F;
+  border: 1px solid #fff;
   width: 20em;
   height: 30em;
   margin: 0 auto;
   text-align: left;
   border-radius: 5px;
+  /* font-family: 'Times New Roman', Times, serif; */
 }
 
 .display {
@@ -18,8 +20,10 @@ h2 {
   margin: 15px;
   text-align: right;
   font-size: 1.5em;
-  background-color: #fefefe;
+  background-color: #fff;
+  color: #0A4D3F;
   height: 1.2em;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
 
@@ -31,14 +35,15 @@ h2 {
 
 .buttons button {
   flex-grow: 1;
-  background-color:grey;
+  background-color:#DBEBEB;
   font-size: 1.1em;
-  color: white;
+  color: #0A4D3F;
   width: 3.5em;
   height: 3.5em;
   padding: 5px;
   margin: 5px;
   border-radius: 10px;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
 .butttons button .clear {
