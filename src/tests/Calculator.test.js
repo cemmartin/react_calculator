@@ -101,4 +101,96 @@ describe("Calculator", () => {
     fireEvent.click(clear);
     expect(runningTotal.textContent).toEqual("0");
   });
+
+  // new code
+  // //
+  it("should output postive numbers", () => {
+    const button8 = container.getByTestId("number8");
+    const operator_add = container.getByTestId("operator-add");
+    const button4 = container.getByTestId("number4");
+    const operator_equals = container.getByTestId("operator-equals");
+    const runningTotal = container.getByTestId("running-total");
+    fireEvent.click(button8);
+    fireEvent.click(operator_add);
+    fireEvent.click(button4);
+    fireEvent.click(operator_equals);
+    expect(runningTotal.textContent).toEqual("12");
+  });
+
+  it("should output negative number", () => {
+    const button1 = container.getByTestId("number1");
+    const operator_subtract = container.getByTestId("operator-subtract");
+    const button8 = container.getByTestId("number8");
+    const operator_equals = container.getByTestId("operator-equals");
+    const runningTotal = container.getByTestId("running-total");
+    fireEvent.click(button1);
+    fireEvent.click(operator_subtract);
+    fireEvent.click(button8);
+    fireEvent.click(operator_equals);
+    expect(runningTotal.textContent).toEqual("-7");
+  });
+  it("should be able to output a decimal", () => {
+    const button6 = container.getByTestId("number6");
+    const operator_divide = container.getByTestId("operator-divide");
+    const button4 = container.getByTestId("number4");
+    const operator_equals = container.getByTestId("operator-equals");
+    const runningTotal = container.getByTestId("running-total");
+    fireEvent.click(button6);
+    fireEvent.click(operator_divide);
+    fireEvent.click(button4);
+    fireEvent.click(operator_equals);
+    expect(runningTotal.textContent).toEqual("1.5");
+  });
+
+  it("should be able to handle very large numbers", () => {
+    const button2 = container.getByTestId("number2");
+    const button0 = container.getByTestId("number0");
+    const operator_multiply = container.getByTestId("operator-multiply");
+    const button4 = container.getByTestId("number4");
+    const operator_equals = container.getByTestId("operator-equals");
+    const runningTotal = container.getByTestId("running-total");
+    fireEvent.click(button2);
+    fireEvent.click(button0);
+    fireEvent.click(button0);
+    fireEvent.click(button0);
+    fireEvent.click(button0);
+    fireEvent.click(button0);
+    fireEvent.click(button0);
+    fireEvent.click(button0);
+    fireEvent.click(button0);
+    fireEvent.click(operator_multiply);
+    fireEvent.click(button4);
+    fireEvent.click(button0);
+    fireEvent.click(button0);
+    fireEvent.click(button0);
+    fireEvent.click(button0);
+    fireEvent.click(button0);
+    fireEvent.click(button0);
+    fireEvent.click(button0);
+    fireEvent.click(operator_multiply);
+    fireEvent.click(button4);
+    fireEvent.click(button0);
+    fireEvent.click(button0);
+    fireEvent.click(button0);
+    fireEvent.click(button0);
+    fireEvent.click(button0);
+    fireEvent.click(button0);
+    fireEvent.click(button0);
+    fireEvent.click(operator_equals);
+    expect(runningTotal.textContent).toEqual("3.2e+23");
+  });
+
+  it("can divide by zero", () => {
+    const button2 = container.getByTestId("number2");
+    const operator_divide = container.getByTestId("operator-divide");
+    const button0 = container.getByTestId("number0");
+    const operator_equals = container.getByTestId("operator-equals");
+    const runningTotal = container.getByTestId("running-total");
+    fireEvent.click(button2);
+    fireEvent.click(operator_divide);
+    fireEvent.click(button0);
+    fireEvent.click(operator_equals);
+    // fireEvent.runningTotal(runningTotal);
+    expect(runningTotal.textContent).toEqual("Error");
+  });
 });
