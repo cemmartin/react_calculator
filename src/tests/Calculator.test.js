@@ -190,7 +190,6 @@ describe("Calculator", () => {
     fireEvent.click(operator_divide);
     fireEvent.click(button0);
     fireEvent.click(operator_equals);
-    // fireEvent.runningTotal(runningTotal);
     expect(runningTotal.textContent).toEqual("Error");
   });
 });
